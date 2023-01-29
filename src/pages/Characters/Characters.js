@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import { useDebounce } from "use-debounce";
 import { Button, Input } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { characterTypes } from "./store/type";
@@ -9,6 +8,7 @@ import CustomPagination from "../components/Pagination";
 
 const Characters = () => {
   const characters = useSelector((state) => state.characterSlice.characters);
+  const dispatch = useDispatch();
   const [search, setSearch] = useState("")
   const {handleSubmit, handleChange} = useFormik({
     initialValues: {
@@ -28,7 +28,6 @@ const Characters = () => {
   });
   // const [value] = useDebounce(text, 1000);
   const info = useSelector((state) => state.characterSlice.info);
-  const pageNumber = parseInt(info?.next?.split("=")[1]);
   const data = characters.map((character, index) => {
     return (
       <Card
@@ -41,7 +40,6 @@ const Characters = () => {
       />
     );
   });
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch({
       type: characterTypes.GET_CHAR,
@@ -50,7 +48,7 @@ const Characters = () => {
         page: "",
       },
     });
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     console.log(characters, "characters");
@@ -72,7 +70,7 @@ const Characters = () => {
           alignItems: "center",
         }}
       >
-        {info?.next == "" ? null : (
+        {info?.next === "" ? null : (
           <CustomPagination count={info?.pages} page={1} search={search} />
         )}
       </div>

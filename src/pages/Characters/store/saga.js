@@ -10,8 +10,8 @@ function* getCharactersHandler({ payload }) {
     const response = yield call(() =>
       axios.get(
         `${api.url}/character/?page=${
-          payload.page == "" ? 1 : payload.page
-        }&name=${payload.search == "" ? "" : payload.search}`
+          payload.page === "" ? 1 : payload.page
+        }&name=${payload.search === "" ? "" : payload.search}`
       )
     );
     yield put(getCharacters(response.data.results));
