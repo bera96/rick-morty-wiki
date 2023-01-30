@@ -5,9 +5,11 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+
 
 const EpisodesCard = (props) => {
-
+    const navigate = useNavigate()
 
       const card = (
         <React.Fragment>
@@ -20,7 +22,7 @@ const EpisodesCard = (props) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Learn More</Button>
+            <Button size="small" onClick={()=>navigate(`${props.episodeID}`)}>Learn More</Button>
           </CardActions>
         </React.Fragment>
       );

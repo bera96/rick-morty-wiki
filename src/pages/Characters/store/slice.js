@@ -11,7 +11,6 @@ const characterSlice = createSlice({
     reducers: {
         getCharacters: (state, action) => {
             state.characters = action.payload
-            console.log(action.payload,"Slice içinde action.payload")
         },
         getInfo: (state, action) => {
             state.info = action.payload

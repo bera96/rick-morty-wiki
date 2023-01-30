@@ -18,6 +18,7 @@ const Episodes = () => {
         episode={episode.episode}
         name={episode.name}
         date={episode.air_date}
+        episodeID={episode.id}
       />
     );
   });

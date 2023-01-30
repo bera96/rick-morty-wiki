@@ -9,8 +9,8 @@ import CustomPagination from "../components/Pagination";
 const Characters = () => {
   const characters = useSelector((state) => state.characterSlice.characters);
   const dispatch = useDispatch();
-  const [search, setSearch] = useState("")
-  const {handleSubmit, handleChange} = useFormik({
+  const [search, setSearch] = useState("");
+  const { handleSubmit, handleChange } = useFormik({
     initialValues: {
       search: "",
     },
@@ -21,9 +21,8 @@ const Characters = () => {
           search: values.search,
           page: 1,
         },
-
-      })
-      setSearch(values.search)
+      });
+      setSearch(values.search);
     },
   });
   // const [value] = useDebounce(text, 1000);
@@ -49,12 +48,7 @@ const Characters = () => {
       },
     });
   }, [dispatch]);
-
-  useEffect(() => {
-    console.log(characters, "characters");
-    console.log(info, "info info");
-    // console.log(info.next.split("=")[1])
-  }, [characters, info]);
+  useEffect(() => {}, [characters, info]);
 
   return (
     <div>

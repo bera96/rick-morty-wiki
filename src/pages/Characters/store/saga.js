@@ -17,7 +17,6 @@ function* getCharactersHandler({ payload }) {
     yield put(getCharacters(response.data.results));
     yield put(getInfo(response.data.info));
   } catch (error) {
-    console.log(error.response.data.error)
     toast.error(error.response.data.error);
   }
 }
