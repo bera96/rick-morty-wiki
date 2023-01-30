@@ -15,7 +15,7 @@ const characterSlice = createSlice({
         },
         getInfo: (state, action) => {
             state.info = action.payload
-            console.log(action.payload, "getInfo")
+            state.info.stage = "episode"
         }
     }
 })
