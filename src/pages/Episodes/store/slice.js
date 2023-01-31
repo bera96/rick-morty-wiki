@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     episodes: [],
     info: {},
+    episode: {}
 }
 
 const episodesSlice = createSlice({
@@ -12,7 +13,9 @@ const episodesSlice = createSlice({
         getEpisodes: (state, action) => {
             state.episodes = action.payload
         },
-
+        getEpisode: (state, action) => {
+            state.episode = action.payload
+        },
         getInfo: (state, action) => {
             state.info = action.payload
             state.info.stage = "episode"
@@ -20,6 +23,6 @@ const episodesSlice = createSlice({
     }
 })
 
-export const {getEpisodes, getInfo} = episodesSlice.actions
+export const {getEpisodes, getInfo, getEpisode} = episodesSlice.actions
 
 export default episodesSlice.reducer

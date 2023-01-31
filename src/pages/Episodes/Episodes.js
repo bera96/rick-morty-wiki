@@ -55,7 +55,7 @@ const Episodes = () => {
         Search
       </Button>
 
-      <div style={{ display: "flex", flexWrap: "wrap" }}>{data}</div>
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginTop:12 }}>{data}</div>
       <div
         style={{
           display: "flex",

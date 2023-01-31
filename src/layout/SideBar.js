@@ -11,7 +11,7 @@ const SideBar = () => {
     <div>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
-          <Toolbar>
+          <Toolbar sx={{justifyContent:"space-around"}}>
             <Typography variant="h6" component="div" onClick={()=>navigate("/")}>
               Characters
             </Typography>

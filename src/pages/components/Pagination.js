@@ -9,9 +9,12 @@ import { episodesTypes } from "../Episodes/store/type";
 const CustomPagination = (props) => {
   const [page, setPage] = useState(1);
 
+
+
   const dispatch = useDispatch();
   const handleChange = (event, value) => {
     setPage(value);
+
   };
   useEffect(() => {
     if (props.stage === "episode") {

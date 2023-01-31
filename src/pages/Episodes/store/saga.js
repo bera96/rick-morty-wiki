@@ -1,4 +1,4 @@
-import { getEpisodes, getInfo } from "./slice";
+import { getEpisodes, getEpisode, getInfo } from "./slice";
 import { call, put, all, takeEvery } from "redux-saga/effects";
 import axios from "axios";
 import { api } from "../../../redux/store";
@@ -20,7 +20,20 @@ function* getEpisodesHandler({ payload }) {
     toast.error(error.response.data.error);
   }
 }
+function* getEpisodeHandler({ payload }) {
+  try {
+    const response = yield call(() =>
+      axios.get(`${api.url}/episode/${payload.id}`)
+    );
+    yield put(getEpisode(response.data));
+  } catch (error) {
+    toast.error(error.response.data.error);
+  }
+}
 
 export function* episodesSaga() {
-  yield all([takeEvery(episodesTypes.GET_EPISODES, getEpisodesHandler)]);
+  yield all([
+    takeEvery(episodesTypes.GET_EPISODES, getEpisodesHandler),
+    takeEvery(episodesTypes.GET_EPISODE, getEpisodeHandler),
+  ]);
 }

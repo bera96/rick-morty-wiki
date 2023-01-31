@@ -22,7 +22,7 @@ const EpisodesCard = (props) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" onClick={()=>navigate(`${props.episodeID}`)}>Learn More</Button>
+            <Button size="small" onClick={()=>navigate(`${props.episodeID}/?name=${props.name}`)}>Learn More</Button>
           </CardActions>
         </React.Fragment>
       );
