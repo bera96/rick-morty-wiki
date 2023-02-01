@@ -25,7 +25,6 @@ const Characters = () => {
       setSearch(values.search);
     },
   });
-  // const [value] = useDebounce(text, 1000);
   const info = useSelector((state) => state.characterSlice.info);
   const data = characters.map((character, index) => {
     return (

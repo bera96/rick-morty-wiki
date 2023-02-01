@@ -14,10 +14,11 @@ const EpisodeDetails = () => {
     dispatch({
       type: episodesTypes.GET_EPISODE,
       payload: {
-        id: parseInt(id),
+        id: id,
       },
     });
   }, []);
+
   return (
     <>
       <Stack

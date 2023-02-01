@@ -1,4 +1,4 @@
-import { getEpisodes, getEpisode, getInfo } from "./slice";
+import { getEpisodes, getEpisode, getInfo,getChars } from "./slice";
 import { call, put, all, takeEvery } from "redux-saga/effects";
 import axios from "axios";
 import { api } from "../../../redux/store";
@@ -21,10 +21,12 @@ function* getEpisodesHandler({ payload }) {
   }
 }
 function* getEpisodeHandler({ payload }) {
+
   try {
     const response = yield call(() =>
       axios.get(`${api.url}/episode/${payload.id}`)
     );
+
     yield put(getEpisode(response.data));
   } catch (error) {
     toast.error(error.response.data.error);

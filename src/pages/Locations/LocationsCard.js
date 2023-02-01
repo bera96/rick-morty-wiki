@@ -8,20 +8,24 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 
 
-const EpisodesCard = (props) => {
+const LocationsCard = (props) => {
+    console.log(props)
     const navigate = useNavigate()
       const card = (
         <React.Fragment>
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              {props.date}
+              {props.name}
             </Typography>
             <Typography variant="h5" component="div">
-              {props.episode + " " + props.name}
+              {props.planet}
+            </Typography>
+            <Typography variant="h5" component="div">
+              {props.dimension}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" onClick={()=>navigate(`${props.episodeID}`)}>Learn More</Button>
+            <Button size="small" onClick={()=>navigate(`${props.locationID}`)}>Learn More</Button>
           </CardActions>
         </React.Fragment>
       );
@@ -32,4 +36,4 @@ const EpisodesCard = (props) => {
   )
 }
 
-export default EpisodesCard
+export default LocationsCard

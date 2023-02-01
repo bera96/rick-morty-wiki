@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 import { useDispatch } from "react-redux";
 import { characterTypes } from "../Characters/store/type";
 import { episodesTypes } from "../Episodes/store/type";
+import { locationTypes } from "../Locations/store/type";
 
 const CustomPagination = (props) => {
   const [page, setPage] = useState(1);
@@ -24,15 +25,26 @@ const CustomPagination = (props) => {
           search: props.search === "" ? "" : props.search,
           page: page,
         },
+      })
+
+    }
+    else if (props.stage === "location") {
+      dispatch({
+        type: locationTypes.GET_LOCATION,
+        payload: {
+          search: props.search === "" ? "" : props.search,
+          page: page,
+        },
       });
-    } else {
+    }
+    else {
       dispatch({
         type: characterTypes.GET_CHAR,
         payload: {
           search: props.search === "" ? "" : props.search,
           page: page,
         },
-      });
+      })
     }
   }, [page]);
 
